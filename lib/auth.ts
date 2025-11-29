@@ -6,8 +6,10 @@ import { redirect } from "next/navigation";
  * If missing, redirects to `redirectTo`.
  * Returns the token string when present.
  */
-export function requireAuthServer(redirectTo = "/login"): string {
-  const cookieStore = cookies();
+export async function requireAuthServer(
+  redirectTo = "/login"
+): Promise<string> {
+  const cookieStore = await cookies();
   const tokenCookie =
     cookieStore.get("accessToken")?.value ||
     cookieStore.get("token")?.value ||
@@ -26,8 +28,8 @@ export function requireAuthServer(redirectTo = "/login"): string {
  * Server-side helper to optionally get admin info from cookies.
  * This only reads raw cookie values; to fully validate the token call your API.
  */
-export function getTokenFromCookies(): string | null {
-  const cookieStore = cookies();
+export async function getTokenFromCookies(): Promise<string | null> {
+  const cookieStore = await cookies();
   return (
     cookieStore.get("accessToken")?.value ||
     cookieStore.get("token")?.value ||

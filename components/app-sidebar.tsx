@@ -42,27 +42,32 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
+      url: "/dashboard",
       icon: IconDashboard,
     },
     {
       title: "Categories",
-      url: "#",
+      url: "/categories",
       icon: IconListDetails,
     },
     {
-      title: "Analytics",
-      url: "#",
-      icon: IconChartBar,
-    },
-    // {
-    //   title: "Projects",
-    //   url: "#",
-    //   icon: IconFolder,
-    // },
-    {
       title: "Users",
-      url: "#",
+      url: "/users",
+      icon: IconUsers,
+    },
+    {
+      title: "Admins",
+      url: "/admins",
+      icon: IconUsers,
+    },
+    {
+      title: "Admins roles",
+      url: "/admin-roles",
+      icon: IconUsers,
+    },
+    {
+      title: "Admins permissions",
+      url: "/admin-permissions",
       icon: IconUsers,
     },
   ],
@@ -172,7 +177,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavDocuments items={data.documents} />
+        {/* <NavDocuments items={data.documents} /> */}
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
